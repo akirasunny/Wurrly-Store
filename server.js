@@ -9,7 +9,7 @@ const Royalties = require("./database/Royalties");
 const Songs = require("./database/Songs");
 const Records = Royalties.records;
 const Items = Songs.items;
-const pageSize = 10;
+const pageSize = 15;
 
 // Express
 

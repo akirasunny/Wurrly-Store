@@ -60,7 +60,14 @@ const indexReducer = {
 		}
 	},
 
-
+	handlePage: (activePage) => {
+		return {
+			type: "HANDLE_PAGE",
+			payload: {
+				activePage: activePage
+			}
+		};
+	}
 };
 
 export default indexReducer;

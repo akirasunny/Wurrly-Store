@@ -33,6 +33,12 @@ const indexSwitch = (state = initState, action) => {
 				pending: false
 			};
 
+		case "HANDLE_PAGE":
+			return {
+				...state,
+				...res
+			};
+			
 		default:
 			return {...state};
 	}
@@ -46,7 +52,8 @@ const initState = {
 	records: [],
 	items: [],
 	activePage: "items",
-	pageSize: 10
+	pageSize: 10,
+	pages: ["Items", "Royalties"]
 };
 
 export default indexSwitch;
