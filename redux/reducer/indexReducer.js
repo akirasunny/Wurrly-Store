@@ -4,7 +4,7 @@ const indexReducer = {
 	initialization: () => {
 		return async (dispatch) => {
 			try {
-				var data = (await axios.get("/initialization")).data;
+				var data = (await axios.get("/api/initialization")).data;
 				dispatch({
 					type: "INIT",
 					payload: data
@@ -12,28 +12,6 @@ const indexReducer = {
 			} catch (err) {
 				console.log(err);
 			}
-		}
-	},
-
-	getAllRecords: () => {
-		return async (dispatch) => {
-			dispatch({
-				type: "START_FETCHING"
-			});
-			try {
-				var data = (await axios.get("/records/1")).data;
-				dispatch({
-					type: "GET_ALL_RECORDS",
-					payload: {
-						records: data
-					}
-				});
-			} catch (err) {
-				console.log(err);
-				dispatch({
-					type: "STOP_FETCHING"
-				});
-			};
 		}
 	},
 

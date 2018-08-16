@@ -18,7 +18,7 @@ class Footer extends Component {
 		var listElement = (i) => {
 			return (
 				<li className={i === current ? "active" : ""}>
-					<a onClick={() => this.props.handlePageNumber(i, `${this.props.activePage}PageIndex`, this.props.activePage)}>
+					<a href="#dest" onClick={() => this.props.handlePageNumber(i, `${this.props.activePage}PageIndex`, this.props.activePage)}>
 						{i + 1}
 					</a>
 				</li>
@@ -28,6 +28,7 @@ class Footer extends Component {
 			return (
 				<li>
 					<a
+						href="#dest"
 						aria-label="Previous"
 						onClick={() => this.props.handlePageNumber(current - 1 >= 0 ? current - 1 : 0, `${this.props.activePage}PageIndex`, this.props.activePage)}
 					>
@@ -41,6 +42,7 @@ class Footer extends Component {
 			return (
 				<li>
 					<a
+						href="#dest"
 						aria-label="Next"
 						onClick={() => this.props.handlePageNumber(current + 1 >= total ? total - 1 : current + 1, `${this.props.activePage}PageIndex`, this.props.activePage)}
 					>

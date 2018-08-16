@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import Summary from "./Royalties/Summary";
+import Record from "./Royalties/Record";
 import Footer from "./children/Footer";
 
 import royaltiesReducer from "../../redux/reducer/royaltiesReducer";
@@ -17,7 +18,7 @@ class Royalties extends Component {
 	}
 	
 	render() {
-		console.log(this.props);
+		// console.log(this.props);
 		return (
 			<div>
 				{Object.keys(this.props.summary).length !== 0 &&
@@ -25,6 +26,22 @@ class Royalties extends Component {
 						summary={this.props.summary}
 					/>
 				}
+
+				<div className="panel panel-default">
+					<div className="panel-heading">
+						<h3>Records</h3>
+					</div>
+
+					<div className="panel-body">
+					{this.props.royalties.map((record, i) => {
+						return (
+							<Record
+								data={record}
+							/>
+						)
+					})}
+					</div>
+				</div>
 
 				<Footer
 					pageIndex={this.props.royaltiesPageIndex}

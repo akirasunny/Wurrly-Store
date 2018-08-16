@@ -11,7 +11,9 @@ class Summary extends Component {
 			<div className="row">
 				<div className="col-sm-6">
 					<div className="panel panel-default">
-						<div className="panel-heading">Accounting Basis</div>
+						<div className="panel-heading">
+							<h4>Accounting Basis</h4>
+						</div>
 						
 						<div className="panel-body">
 							<table className="table">
@@ -30,7 +32,9 @@ class Summary extends Component {
 
 				<div className="col-sm-6">
 					<div className="panel panel-default">
-						<div className="panel-heading">Organization Statistics</div>
+						<div className="panel-heading">
+							<h4>Organization Statistics</h4>
+						</div>
 						
 						<div className="panel-body">
 							<table className="table">
@@ -45,7 +49,9 @@ class Summary extends Component {
 							</table>
 						</div>
 
-						<div className="panel-heading">Royalties Summary</div>
+						<div className="panel-heading">
+							<h4>Royalties Summary</h4>
+						</div>
 
 						<div className="panel-body">
 							<table className="table">

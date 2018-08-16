@@ -19,12 +19,6 @@ const indexSwitch = (state = initState, action) => {
 				...res
 			};
 
-		case "GET_ALL_RECORDS":
-			return {
-				...state,
-				...res,
-				pending: false
-			};
 
 		case "JUMP_PAGE": 
 			return {
@@ -52,8 +46,8 @@ const initState = {
 	royalties: [],
 	items: [],
 	activePage: "items",
-	pageSize: 10,
-	pages: ["Items", "Royalties"]
+	about: {},
+	pages: ["Items", "Royalties", "About"]
 };
 
 export default indexSwitch;

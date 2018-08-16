@@ -7,10 +7,11 @@ import {
 	Link
 } from 'react-router-dom';
 
-import Header from "./children/Header";
 import Footer from "./children/Footer";
+
 import Items from "./Items";
 import Royalties from "./Royalties";
+import About from "./About";
 
 import indexReducer from "../../redux/reducer/indexReducer";
 
@@ -47,8 +48,15 @@ class Index extends Component {
 								<div className="jumbotron">
 									<div style={{ padding: 20 }}>
 										<h1>Wurrly Store</h1>
+										
+										<p>Keep tracking the inventories and the royalties of everything in Wurrly.<br />
+										Anywhere. Anytime.</p>
 
-										<div className="btn-group btn-group-justified" role="group">
+										<div
+											className="btn-group btn-group-justified"
+											role="group"
+											id="dest"
+										>
 											{this.props.pages.map((page, i) => {
 												return (
 													<div className="btn-group" role="group" key={i}>
@@ -112,6 +120,15 @@ class Index extends Component {
 												handlePageNumber={this.handlePageNumber}
 												handlePage={this.handlePage}
 												chopArray={chopArray}
+											/>
+										}
+									/>
+									<Route
+										path="/about"
+										render={() =>
+											<About
+												about={this.props.about}
+												handlePage={this.handlePage}
 											/>
 										}
 									/>
