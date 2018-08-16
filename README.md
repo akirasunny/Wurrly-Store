@@ -19,7 +19,7 @@ Server-side: `Node.js`, `Express.js`
 
 To get started, please make sure your device has `Node.js` and `Git` installed, or follow [this link(Node.js)](https://nodejs.org/en/download/), and [this link(git)](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) to install.
 
-__1.__ Open `command line`, run `git clone https://github.com/akirasunny/wurrly.git` to clone this repository;
+__1.__ Open `command line` in the folder you like, run `git clone https://github.com/akirasunny/wurrly.git` to clone this repository;
 
 __2.__ Navigate to the folder of the repository, run `npm run build` on command line to generate a `bundle.js` in `dist` folder;
 
@@ -67,6 +67,8 @@ Wurrly Store
 A very nice exercise that covers most of the basic skills required for React.js and Node.js development. Timing is reasonable as well, if I don't have to work in day time, it's an exercise that can be finished in a relaxed manner.
 
 Also, due to time limitation, I didn't spend too much time in styling, but used Bootstrap to save time instead -- very convenient, and mobile-responsive.
+
+Since my access to `imagePath` in `items` was denied, I used a placeholder API to render random pictures instead. For more details, please see `src/components/Items/Item.js`.
 
 Following are some points I think could be further improved.
 

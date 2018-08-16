@@ -12,6 +12,19 @@ class Footer extends Component {
 		super();
 
 		this.generateFooter = this.generateFooter.bind(this);
+		this.handleNumber = this.handleNumber.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
+	}
+
+	handleNumber(e) {
+		var jumpTo = e.target.value;
+		this.setState({ jumpTo: jumpTo });
+	}
+
+	handleSubmit(pageNumber) {
+		if (pageNumber >= 0 && pageNumber <= this.props.totalPage) {
+			this.props.handlePageNumber(parseInt(pageNumber) - 1, `${this.props.activePage}PageIndex`, this.props.activePage);
+		}
 	}
 
 	generateFooter(current, total) {
@@ -106,11 +119,40 @@ class Footer extends Component {
 
 	render() {
 		return (
-			<div className="row text-center">
-				<nav aria-label="Page navigation">
-					{this.generateFooter(this.props.pageIndex, this.props.totalPage)}
-				</nav>
+			<div>
+				<div className="row">
+					<div className="col-lg-4"/>
+					
+					<div className="col-lg-4 text-center">
+						<div className="input-group">
+							<input
+								type="number"
+								className="form-control"
+								placeholder="Jump to"
+								onChange={this.handleNumber}
+							/>
+							
+							<span className="input-group-btn">
+								<button
+									className="btn btn-default"
+									type="button"
+									onClick={() => this.handleSubmit(this.state.jumpTo)}
+								>
+									Go
+								</button>
+							</span>
+						</div>
+					</div>
 
+					<div className="col-lg-4"/>
+				</div>
+
+				<div className="row text-center">
+					<nav aria-label="Page navigation">
+						{this.generateFooter(this.props.pageIndex, this.props.totalPage)}
+					</nav>
+				</div>
+				
 				<div style={{ height: 100 }} />
 			</div>
 		)
