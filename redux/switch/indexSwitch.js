@@ -38,7 +38,7 @@ const indexSwitch = (state = initState, action) => {
 				...state,
 				...res
 			};
-			
+
 		default:
 			return {...state};
 	}
@@ -46,10 +46,10 @@ const indexSwitch = (state = initState, action) => {
 
 const initState = {
 	itemsPageIndex: 0,
-	recordsPageIndex: 0,
+	royaltiesPageIndex: 0,
 	pageOfItems: 0,
 	pageOfRoyalties: 0,
-	records: [],
+	royalties: [],
 	items: [],
 	activePage: "items",
 	pageSize: 10,

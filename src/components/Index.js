@@ -18,7 +18,7 @@ class Index extends Component {
 	constructor() {
 		super();
 
-		// this.handlePage = this.handlePage.bind(this);
+		this.handlePage = this.handlePage.bind(this);
 		this.handlePageNumber = this.handlePageNumber.bind(this);
 	}
 
@@ -35,42 +35,57 @@ class Index extends Component {
 	}
 
 	render() {
-		console.log(this.props);
+		// console.log(this.props);
 		return (
 			<BrowserRouter>
 				<Switch>
 					<div>
-						<Header />
-
 						<div className="row">
 							<div className="col-md-2" />
 							
 							<div className="col-md-8">
 								<div className="jumbotron">
-									<h1>Wurrly Store</h1>
+									<div style={{ padding: 20 }}>
+										<h1>Wurrly Store</h1>
 
-									<div className="btn-group btn-group-justified" role="group">
-										{this.props.pages.map((page, i) => {
-											return (
-												<div className="btn-group" role="group">
-													<Link to={`/${page.toLowerCase()}`}>
-														<button
-															type="button"
-															onClick={() => this.handlePage(page.toLowerCase())}
-															className={`btn btn-${page.toLowerCase() === this.props.activePage ? "info" : "default"}`}
-														>
-															{page}
-														</button>
-													</Link>
-												</div>
-											)
-										})}
+										<div className="btn-group btn-group-justified" role="group">
+											{this.props.pages.map((page, i) => {
+												return (
+													<div className="btn-group" role="group" key={i}>
+														<Link to={`/${page.toLowerCase()}`}>
+															<button
+																type="button"
+																onClick={() => this.handlePage(page.toLowerCase())}
+																className={`btn btn-${page.toLowerCase() === this.props.activePage ? "info" : "default"}`}
+															>
+																{page}
+															</button>
+														</Link>
+													</div>
+												)
+											})}
+										</div>
 									</div>
 								</div>
 
 								<div>
 									<Route
 										exact
+										path="/"
+										render={() =>
+											<Items
+												items={this.props.items}
+												activePage={this.props.activePage}
+												itemsPageIndex={this.props.itemsPageIndex}
+												pageOfItems={this.props.pageOfItems}
+
+												handlePageNumber={this.handlePageNumber}
+												handlePage={this.handlePage}
+												chopArray={chopArray}
+											/>
+										}
+									/>
+									<Route
 										path="/items"
 										render={() =>
 											<Items
@@ -80,6 +95,7 @@ class Index extends Component {
 												pageOfItems={this.props.pageOfItems}
 
 												handlePageNumber={this.handlePageNumber}
+												handlePage={this.handlePage}
 												chopArray={chopArray}
 											/>
 										}
@@ -87,7 +103,16 @@ class Index extends Component {
 									<Route
 										path="/royalties"
 										render={() =>
-											<Royalties />
+											<Royalties
+												royalties={this.props.royalties}
+												activePage={this.props.activePage}
+												royaltiesPageIndex={this.props.royaltiesPageIndex}
+												pageOfRoyalties={this.props.pageOfRoyalties}
+
+												handlePageNumber={this.handlePageNumber}
+												handlePage={this.handlePage}
+												chopArray={chopArray}
+											/>
 										}
 									/>
 								</div>
@@ -120,3 +145,9 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps)(Index);
+
+						// <Header
+						// 	pages={this.props.pages}
+						// 	activePage={this.props.activePage}
+						// 	handlePage={this.handlePage}
+						// />

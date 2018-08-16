@@ -8,6 +8,10 @@ class Items extends Component {
 		super();
 	}
 
+	componentDidMount() {
+		this.props.handlePage("items");
+	}
+
 	render() {
 		var items = this.props.chopArray(this.props.items, 3);
 		return (
