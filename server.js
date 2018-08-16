@@ -20,6 +20,8 @@ app.use(express.static('dist'));
 app.use(body.urlencoded({ extended: true }));
 app.use(body.json());
 
+// React router setups
+
 app.get("/", (req, res) => {
 	res.sendFile(__dirname + "/dist/index.html");
 });
@@ -35,6 +37,8 @@ app.get("/royalties", (req, res) => {
 app.get("/about", (req, res) => {
 	res.sendFile(__dirname + "/dist/index.html");
 });
+
+// General APIs
 
 app.get("/api/initialization", (req, res) => {
 	var pageOfItems = Math.ceil(Items.length / pageSize);
@@ -67,6 +71,8 @@ app.get("/api/get-summary", (req, res) => {
 	res.send(summary);
 });
 
+// Fetch data with page number
+
 app.get("/items/:page", (req, res) => {
 	var pageNumber = parseInt(req.params.page);
 	res.send(Items.slice(pageNumber * pageSize, (pageNumber + 1) * pageSize));
@@ -76,6 +82,8 @@ app.get("/royalties/:page", (req, res) => {
 	var pageNumber = parseInt(req.params.page);
 	res.send(Records.slice(pageNumber * pageSize, (pageNumber + 1) * pageSize));
 });
+
+// Err handling
 
 app.get("*", (req, res) => {
 	res.redirect("/");
